@@ -9,17 +9,7 @@ function Pokemon() {
     const[next,setNext]=useState();
     const[previous,setPrevious]=useState();
 
-const pokeFun=async()=>{
-setLoading(true)
-const res =await axios.get(url);
-  console.log(res.data.results) 
-  setNext(res.data.next);
-  setPrevious(res.data.previous);
-  getPokemon(res.data.results);
-  setLoading(false);
-  console.log(pokeData);
 
-}
 
 const getPokemon =async (res)=>{
 res.map(async(r)=>{
@@ -32,6 +22,17 @@ res.map(async(r)=>{
 }
 
 useEffect(()=>{
+  const pokeFun=async()=>{
+    setLoading(true)
+    const res =await axios.get(url);
+      console.log(res.data.results) 
+      setNext(res.data.next);
+      setPrevious(res.data.previous);
+      getPokemon(res.data.results);
+      setLoading(false);
+      console.log(pokeData);
+    
+    };
     pokeFun();
 },[url])
 
