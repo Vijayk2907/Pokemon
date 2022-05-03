@@ -30,8 +30,6 @@ useEffect(()=>{
       setPrevious(res.data.previous);
       getPokemon(res.data.results);
       setLoading(false);
-      console.log(pokeData);
-    
     };
     pokeFun();
 },[url])
